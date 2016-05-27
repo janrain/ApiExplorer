@@ -5,7 +5,6 @@ module.exports = function(CredentialSvc, HttpSvc) {
 
   var creds = CredentialSvc.get()
   var basePath = [
-    'beta',
     'config',
     creds.appId,
     'schemas'
