@@ -1,0 +1,10 @@
+[
+  {
+    "schemaAttribute": "birthday",
+    "type": "dateTime"
+  },
+  {
+    "schemaAttribute": "primaryAddress.mobile",
+    "type": "string"
+  }
+]

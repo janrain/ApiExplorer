@@ -1,0 +1,18 @@
+[
+  {
+    "_self": "/beta/config/v86cchggr5cdvbfh7ydk8s63zz/flows/myCoolFlow/locales/en-US/mailTemplates/reactivateAccount",
+    "name": "reactivateAccount"
+  },
+  {
+    "_self": "/beta/config/v86cchggr5cdvbfh7ydk8s63zz/flows/myCoolFlow/locales/en-US/mailTemplates/passwordRecover",
+    "name": "passwordRecover"
+  },
+  {
+    "_self": "/beta/config/v86cchggr5cdvbfh7ydk8s63zz/flows/myCoolFlow/locales/en-US/mailTemplates/registrationVerification",
+    "name": "registrationVerification"
+  },
+  {
+    "_self": "/beta/config/v86cchggr5cdvbfh7ydk8s63zz/flows/myCoolFlow/locales/en-US/mailTemplates/emailAddressChanged",
+    "name": "emailAddressChanged"
+  }
+]

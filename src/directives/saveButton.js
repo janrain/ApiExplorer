@@ -8,6 +8,6 @@ module.exports = function() {
       saveFn: '&',
       idleText: '@'
     },
-    templateUrl: '/public/partials/saveButton.html'
+    templateUrl: '/partials/saveButton.html'
   }
 }

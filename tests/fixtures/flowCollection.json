@@ -1,0 +1,10 @@
+[
+  {
+    "_self": "/config/v86cchggr5cdvbfh7ydk8s63zz/flows/standard",
+    "name": "standard"
+  },
+  {
+    "_self": "/config/v86cchggr5cdvbfh7ydk8s63zz/flows/myCoolFlow",
+    "name": "myCoolFlow"
+  }
+]

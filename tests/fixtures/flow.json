@@ -1,0 +1,15 @@
+{
+    "authProfileData": [
+        "name",
+        "verifiedEmail",
+        "identifier"
+    ],
+
+    "...shortened...": "...for brevity...",
+
+    "userData": [
+        "email",
+        "displayName"
+    ],
+    "version": "00000000-0000-0000-0000-000000000000"
+}

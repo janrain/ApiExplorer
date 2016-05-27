@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+- '4'
+- '0.11'
+- '0.10'
+after_success:
+- cat coverage/*/text-summary.txt
+- cat coverage/*/text.txt
+- cat coverage/*/lcov.info | ./node_modules/.bin/coveralls
+env:
+  global:
+    - COVERALLS_SERVICE_NAME=travis-pro
+    - secure: KkZbHRlVFMmFJnOMNyhDNPwjos+dyfpgaDGf9mU8Gx0LJ2TzSq1pdvzBmSLsqUvVMjhoBMgI319BhTsNYjYP/t+QVwDaWHvKZ8IvkUQsvmhegP8fMrbxOV8OBdzkzcE1ddpMDAbGfuKUcz/zAspyje6uZLgSZFTWuljVxlEOVX6TVIuVhQpAvZ3O8LY4hXTTHfTjna8sas9wg+BUGfYrK03d6p7kH0Fy92+niR/JxfNzJK6LdI7xX8gWHiAz0Ks7atG+4aNnu3IeUdFm/XXMu4kEODjhLKArVMn2cEEOAppG9h+n6BjQxWjF5LuYmfF9aaUqOxQnlRdJumVS1j5i+gHkwc9tLeH91h8mwnOdCSUcojHh4AdG3sD00zVt7sn6pAMmbbsSYw9kLriyDkPuQx9jQp4duh0fvkJoIg93Fq38QL1LTPfbtO/w9reJpmoRAfKExrueE9Gm5jH61XpEUXd1dTTTTQE2WwWJAx1xr4HiTFso0FI1vCkW1qOqQHrBu8c/ddaxiin11FpDgLm0oLD/GWT5bZVVoQbjz5SEf5HElCdTAUyLKkIBZ5Ls0y9YCfYB6V5uYdw6UzhsHBKiqzki5wT/W3d921jlwAJUNn7Go9OWQgn7BGXo2ulh8UY0A0ofH1G+AlWcQPLatqYE1R0fc7u/WNP4QWFg+ClMwxg=

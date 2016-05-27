@@ -10,6 +10,6 @@ module.exports = function() {
       selectedLocale: '=',
       translatable: '@'
     },
-    templateUrl: '/public/partials/fieldValidation.html'
+    templateUrl: '/partials/fieldValidation.html'
   }
 }

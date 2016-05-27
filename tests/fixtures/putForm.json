@@ -1,0 +1,10 @@
+{
+  "fields": [
+    {
+      "name": "signInEmailAddress"
+    },
+    {
+      "name": "currentPassword"
+    }
+  ]
+}

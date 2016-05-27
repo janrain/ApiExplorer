@@ -1,0 +1,65 @@
+{
+  "_relationships": {
+    "forms": [
+      {
+        "_self": "/v1/config/v86cchggr5cdvbfh7ydk8s63zz/flows/myCoolFlow/forms/editProfileForm",
+        "name": "editProfileForm"
+      }
+    ]
+  },
+  "_self": "/v1/config/v86cchggr5cdvbfh7ydk8s63zz/flows/myCoolFlow/fields/myCustomTextField",
+  "type": "text",
+  "name": "myCustomTextField",
+  "schemaAttribute": "displayName",
+  "label": {
+    "_self": "/v1/config/v86cchggr5cdvbfh7ydk8s63zz/flows/myCoolFlow/translations/b6ced670-7140-4446-9839-da3474860b1a",
+    "key": "b6ced670-7140-4446-9839-da3474860b1a",
+    "path": "fields.displayName.label",
+    "values": {
+      "en-US": "Display Name"
+    }
+  },
+  "tip": {
+    "_self": "/v1/config/v86cchggr5cdvbfh7ydk8s63zz/flows/myCoolFlow/translations/8b93448a-6f00-448c-952b-0f1536107cf7",
+    "key": "8b93448a-6f00-448c-952b-0f1536107cf7",
+    "path": "fields.displayName.tip",
+    "values": {
+      "en-US": ""
+    }
+  },
+  "socialProfileData": "profile.displayName",
+  "placeholder": {
+    "_self": "/v1/config/v86cchggr5cdvbfh7ydk8s63zz/flows/myCoolFlow/translations/6e15067b-2ca5-43c3-af96-930766d63375",
+    "key": "6e15067b-2ca5-43c3-af96-930766d63375",
+    "path": "fields.displayName.placeholder",
+    "values": {
+      "en-US": "Display Name"
+    }
+  },
+  "validation": [
+    {
+      "rule": "required",
+      "value": true,
+      "message": {
+        "_self": "/v1/config/v86cchggr5cdvbfh7ydk8s63zz/flows/myCoolFlow/translations/bb2b21a1-98df-4dce-84f7-534013c46225",
+        "key": "bb2b21a1-98df-4dce-84f7-534013c46225",
+        "path": "fields.displayName.validation.messages.required",
+        "values": {
+          "en-US": "Display name is required."
+        }
+      }
+    },
+    {
+      "rule": "unique",
+      "value": true,
+      "message": {
+        "_self": "/v1/config/v86cchggr5cdvbfh7ydk8s63zz/flows/myCoolFlow/translations/63f7c18f-521a-4b4f-94c4-0b04b870c82e",
+        "key": "63f7c18f-521a-4b4f-94c4-0b04b870c82e",
+        "path": "fields.displayName.validation.messages.unique",
+        "values": {
+          "en-US": "That display name is already taken."
+        }
+      }
+    }
+  ]
+}

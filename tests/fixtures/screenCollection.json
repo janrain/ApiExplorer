@@ -1,0 +1,14 @@
+[
+  {
+    "_self": "/config/v86cchggr5cdvbfh7ydk8s63zz/flows/myCoolFlow/screens/traditionalAuthenticateMerge",
+    "name": "traditionalAuthenticateMerge"
+  },
+  {
+    "_self": "/config/v86cchggr5cdvbfh7ydk8s63zz/flows/myCoolFlow/screens/reactivateAccountSuccess",
+    "name": "reactivateAccountSuccess"
+  },
+  {
+    "_self": "/config/v86cchggr5cdvbfh7ydk8s63zz/flows/myCoolFlow/screens/signIn",
+    "name": "signIn"
+  }
+]

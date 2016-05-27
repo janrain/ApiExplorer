@@ -1,0 +1,10 @@
+[
+  {
+    "_self": "/v1/config/v86cchggr5cdvbfh7ydk8s63zz/flows/myCoolFlow/locales/en-US",
+    "name": "en-US"
+  },
+  {
+    "_self": "/v1/config/v86cchggr5cdvbfh7ydk8s63zz/flows/myCoolFlow/locales/it-IT",
+    "name": "it-IT"
+  }
+]

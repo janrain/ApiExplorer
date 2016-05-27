@@ -1,0 +1,31 @@
+{
+  "type": "text",
+  "name": "myCustomTextField",
+  "schemaAttribute": "displayName",
+  "label": {
+    "key": "b6ced670-7140-4446-9839-da3474860b1a"
+  },
+  "tip": {
+    "key": "8b93448a-6f00-448c-952b-0f1536107cf7"
+  },
+  "socialProfileData": "profile.displayName",
+  "placeholder": {
+    "key": "6e15067b-2ca5-43c3-af96-930766d63375"
+  },
+  "validation": [
+    {
+      "rule": "required",
+      "value": true,
+      "message": {
+        "key": "bb2b21a1-98df-4dce-84f7-534013c46225"
+      }
+    },
+    {
+      "rule": "unique",
+      "value": true,
+      "message": {
+        "key": "63f7c18f-521a-4b4f-94c4-0b04b870c82e"
+      }
+    }
+  ]
+}

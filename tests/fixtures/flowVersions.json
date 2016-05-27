@@ -1,0 +1,18 @@
+[
+  {
+    "change": "Updated field: givenName",
+    "version": "HEAD"
+  },
+  {
+    "change": "Updated field: givenName",
+    "version": "201601201956110829464"
+  },
+  {
+    "change": "Updated field: firstName",
+    "version": "201601201954520534731"
+  },
+  {
+    "change": "Created.",
+    "version": "201601201954370741786"
+  }
+]
