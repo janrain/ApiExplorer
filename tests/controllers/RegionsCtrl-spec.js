@@ -22,6 +22,9 @@ describe('RegionsCtrl', function() {
       $controller('RegionsCtrl',locals)
     });
   });
+  afterEach(function() {
+    window.localStorage.removeItem('capi-region');
+  });
 
   describe('initial state', function() {
     it('should set the scope regions and region', function() {

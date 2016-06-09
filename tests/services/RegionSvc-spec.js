@@ -25,7 +25,7 @@ describe('RegionSvc', function() {
   });
   afterEach(function() {
     $rootScope.$broadcast.restore();
-    window.sessionStorage.removeItem('capi-region');
+    window.localStorage.removeItem('capi-region');
   });
 
   describe('get', function() {
@@ -89,7 +89,7 @@ describe('RegionSvc with state', function() {
   });
   afterEach(function() {
     $rootScope.$broadcast.restore();
-    window.sessionStorage.removeItem('capi-region');
+    window.localStorage.removeItem('capi-region');
   });
 
   describe('get', function() {

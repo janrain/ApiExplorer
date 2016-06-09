@@ -2,7 +2,7 @@
   "name": "capi-ui",
   "version": "1.0.0",
   "description": "UI for CAPI.",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "watchtest": "karma start --browsers PhantomJS",
     "test": "karma start --browsers PhantomJS --singleRun true",
@@ -10,7 +10,7 @@
     "compilejs": "java -jar ./node_modules/google-closure-compiler/compiler.jar --js bundle.js --js_output_file bundle-min.js --jscomp_off=misplacedTypeAnnotation",
     "buildcss": "node-sass --recursive --output styles --output-style compressed styles/*.sass",
     "build": "npm run buildjs && npm run compilejs && npm run buildcss",
-    "start": "http-server -p 8033 -o"
+    "start": "electron main.js"
   },
   "author": "",
   "license": "MIT",
@@ -41,6 +41,7 @@
     "browserify-istanbul": "^0.2.1",
     "chai": "^3.4.1",
     "coveralls": "^2.11.9",
+    "electron-prebuilt": "^1.2.1",
     "karma": "^0.13.16",
     "karma-browserify": "^4.4.2",
     "karma-chrome-launcher": "^0.2.2",
@@ -50,8 +51,10 @@
     "karma-mocha-reporter": "^1.1.4",
     "karma-phantomjs-launcher": "^0.2.2",
     "karma-sinon-chai": "^1.1.0",
+    "lolex": "^1.5.0",
     "mocha": "^2.3.4",
     "phantomjs": "^2.1.0",
-    "sinon": "^1.17.2"
+    "sinon": "^1.17.2",
+    "sinon-chai": "^2.8.0"
   }
 }
