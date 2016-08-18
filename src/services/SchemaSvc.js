@@ -49,16 +49,11 @@ module.exports = function(CredentialSvc, HttpSvc, $q) {
     return HttpSvc.get(basePath().concat([schema]))
   }
 
-  this.getAllIntersect = function() {
-    return self.getAll()
-      .then(function(result) {
-        return $q.all(
-          pluck(result.data, "name")
-          .map(self.get));
-      })
-      .then(function(results) {
-        return { data: intersectionBy(results, 'schemaAttribute') };
-      });
+  this.getAllIntersect = function(schemas) {
+      return $q.all(schemas.map(self.get))
+        .then(function(results) {
+          return { data: intersectionBy(results, 'schemaAttribute') };
+        });
   }
 
   this.getAttribute = function(schema, attribute) {
