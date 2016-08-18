@@ -24,6 +24,7 @@ describe('AddFieldCtrl', function() {
         $stateParams: { flow: 'myflow' },
         FieldSvc: helpers.makeFieldSvcStub($q),
         FieldMetaSvc: helpers.makeFieldMetaSvcStub($q),
+        FlowSvc: helpers.makeFlowSvcStub($q),
         LocaleSvc: helpers.makeLocaleSvcStub($q),
         SchemaSvc: helpers.makeSchemaSvcStub($q)
       }

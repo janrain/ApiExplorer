@@ -27,6 +27,7 @@ describe('FieldOverviewCtrl', function() {
           field: 'myfield'
         },
         FieldSvc: helpers.makeFieldSvcStub($q),
+        FlowSvc: helpers.makeFlowSvcStub($q),
         SchemaSvc: helpers.makeSchemaSvcStub($q),
         FieldMetaSvc: helpers.makeFieldMetaSvcStub($q),
         LocaleSvc: helpers.makeLocaleSvcStub($q)

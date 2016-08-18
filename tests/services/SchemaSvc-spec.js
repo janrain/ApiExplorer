@@ -52,83 +52,71 @@ describe('schemasSvc', function() {
   });
   describe('getAllIntersect', function() {
     it('no schemas is an empty list', function() {
-      HttpSvc.get.returns($q.when({ data: [] }));
-      SchemaSvc.getAllIntersect()
+      SchemaSvc.getAllIntersect([])
         .then(function(result) {
           assert.isArray(result.data, "We don't have an array!");
           assert.lengthOf(result.data, 0, "The list isn't empty!");
         });
       $rootScope.$digest();
-      sinon.assert.callCount(HttpSvc.get, 1);
-      sinon.assert.calledWith(HttpSvc.get, basePath);
+      sinon.assert.callCount(HttpSvc.get, 0);
     });
     it('one schema returns all attributes', function() {
-      HttpSvc.get.onCall(0).returns($q.when({ data: [{name: "schema1"}] }));
+      HttpSvc.get.returns($q.when({ data: schemaAttributes }));
+      SchemaSvc.getAllIntersect(["schema1"])
+        .then(function(result) {
+          assert.deepEqual(result.data, schemaAttributes, "It's not what we expected!");
+        });
+      $rootScope.$digest();
+      sinon.assert.callCount(HttpSvc.get, 1);
+      sinon.assert.calledWith(HttpSvc.get, basePath.concat(["schema1"]));
+    });
+    it('two identical schemas returns all attributes', function() {
+      HttpSvc.get.onCall(0).returns($q.when({ data: schemaAttributes }));
       HttpSvc.get.onCall(1).returns($q.when({ data: schemaAttributes }));
-      SchemaSvc.getAllIntersect()
+      SchemaSvc.getAllIntersect(["schema1", "schema2"])
         .then(function(result) {
           assert.deepEqual(result.data, schemaAttributes, "It's not what we expected!");
         });
       $rootScope.$digest();
       sinon.assert.callCount(HttpSvc.get, 2);
-      sinon.assert.calledWith(HttpSvc.get, basePath);
-      sinon.assert.calledWith(HttpSvc.get, basePath.concat(["schema1"]));
-    });
-    it('two identical schemas returns all attributes', function() {
-      HttpSvc.get.onCall(0).returns($q.when({ data: [{name: "schema1"}, {name: "schema2"}] }));
-      HttpSvc.get.onCall(1).returns($q.when({ data: schemaAttributes }));
-      HttpSvc.get.onCall(2).returns($q.when({ data: schemaAttributes }));
-      SchemaSvc.getAllIntersect()
-        .then(function(result) {
-          assert.deepEqual(result.data, schemaAttributes, "It's not what we expected!");
-        });
-      $rootScope.$digest();
-      sinon.assert.callCount(HttpSvc.get, 3);
-      sinon.assert.calledWith(HttpSvc.get, basePath);
       sinon.assert.calledWith(HttpSvc.get, basePath.concat(["schema1"]));
       sinon.assert.calledWith(HttpSvc.get, basePath.concat(["schema2"]));
     });
     it('two similar schemas return similarities', function() {
-      HttpSvc.get.onCall(0).returns($q.when({ data: [{name: "schema1"}, {name: "schema2"}] }));
-      HttpSvc.get.onCall(1).returns($q.when({ data: schemaAttributes.slice(0,5) }));
-      HttpSvc.get.onCall(2).returns($q.when({ data: schemaAttributes.slice(2) }));
-      SchemaSvc.getAllIntersect()
+      HttpSvc.get.onCall(0).returns($q.when({ data: schemaAttributes.slice(0,5) }));
+      HttpSvc.get.onCall(1).returns($q.when({ data: schemaAttributes.slice(2) }));
+      SchemaSvc.getAllIntersect(["schema1", "schema2"])
         .then(function(result) {
           assert.deepEqual(result.data, schemaAttributes.slice(2,5), "It's not what we expected!");
         });
       $rootScope.$digest();
-      sinon.assert.callCount(HttpSvc.get, 3);
-      sinon.assert.calledWith(HttpSvc.get, basePath);
+      sinon.assert.callCount(HttpSvc.get, 2);
       sinon.assert.calledWith(HttpSvc.get, basePath.concat(["schema1"]));
       sinon.assert.calledWith(HttpSvc.get, basePath.concat(["schema2"]));
     });
     it('two disimilar schemas return no attributes', function() {
-      HttpSvc.get.onCall(0).returns($q.when({ data: [{name: "schema1"}, {name: "schema2"}] }));
-      HttpSvc.get.onCall(1).returns($q.when({ data: schemaAttributes.slice(0,4) }));
-      HttpSvc.get.onCall(2).returns($q.when({ data: schemaAttributes.slice(4) }));
-      SchemaSvc.getAllIntersect()
+      HttpSvc.get.onCall(0).returns($q.when({ data: schemaAttributes.slice(0,4) }));
+      HttpSvc.get.onCall(1).returns($q.when({ data: schemaAttributes.slice(4) }));
+      SchemaSvc.getAllIntersect(["schema1", "schema2"])
         .then(function(result) {
           assert.isArray(result.data, "We don't have an array!");
           assert.lengthOf(result.data, 0, "The list isn't empty!");
         });
       $rootScope.$digest();
-      sinon.assert.callCount(HttpSvc.get, 3);
-      sinon.assert.calledWith(HttpSvc.get, basePath);
+      sinon.assert.callCount(HttpSvc.get, 2);
       sinon.assert.calledWith(HttpSvc.get, basePath.concat(["schema1"]));
       sinon.assert.calledWith(HttpSvc.get, basePath.concat(["schema2"]));
     });
     it('three or more schemas return similarities', function() {
-      HttpSvc.get.onCall(0).returns($q.when({ data: [{name: "schema1"}, {name: "schema2"}, {name: "schema3"}] }));
-      HttpSvc.get.onCall(1).returns($q.when({ data: schemaAttributes.slice(0,5) }));
-      HttpSvc.get.onCall(2).returns($q.when({ data: schemaAttributes.slice(4) }));
-      HttpSvc.get.onCall(3).returns($q.when({ data: schemaAttributes.slice(2,7) }));
-      SchemaSvc.getAllIntersect()
+      HttpSvc.get.onCall(0).returns($q.when({ data: schemaAttributes.slice(0,5) }));
+      HttpSvc.get.onCall(1).returns($q.when({ data: schemaAttributes.slice(4) }));
+      HttpSvc.get.onCall(2).returns($q.when({ data: schemaAttributes.slice(2,7) }));
+      SchemaSvc.getAllIntersect(["schema1", "schema2", "schema3"])
         .then(function(result) {
           assert.deepEqual(result.data, schemaAttributes.slice(4,5), "It's not what we expected!");
         });
       $rootScope.$digest();
-      sinon.assert.callCount(HttpSvc.get, 4);
-      sinon.assert.calledWith(HttpSvc.get, basePath);
+      sinon.assert.callCount(HttpSvc.get, 3);
       sinon.assert.calledWith(HttpSvc.get, basePath.concat(["schema1"]));
       sinon.assert.calledWith(HttpSvc.get, basePath.concat(["schema2"]));
       sinon.assert.calledWith(HttpSvc.get, basePath.concat(["schema3"]));
