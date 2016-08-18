@@ -52,7 +52,8 @@ module.exports = function(
   FieldSvc,
   FieldMetaSvc,
   LocaleSvc,
-  SchemaSvc
+  SchemaSvc,
+  FlowSvc
 ) {
   'ngInject';
 
@@ -95,10 +96,12 @@ module.exports = function(
   $scope.validationFormats = validationFormats
   $scope.newValidation = { rule: '', value: null, message: '' }
   $scope.newOption = { label: '', value: '' }
-  // This will have to get more sophisticated once we know what schemas the flow
-  // is compatible with.
-  SchemaSvc
-    .getAllIntersect()
+  FlowSvc
+    .get(flow)
+    .then(function(result) {
+      $scope.schemas = result.data.schemas;
+      return SchemaSvc.getAllIntersect($scope.schemas);
+    })
     .then(sFn.pluckPropToScope('schemaAttribute', 'schemaAttributes'));
   LocaleSvc
     .getAll(flow)

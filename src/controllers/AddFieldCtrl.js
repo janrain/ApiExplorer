@@ -3,7 +3,7 @@
 var first = require('lodash/array/first');
 var includes = require('lodash/collection/includes');
 
-module.exports = function($scope, $stateParams, UtilSvc, FieldSvc, FieldMetaSvc, LocaleSvc, SchemaSvc) {
+module.exports = function($scope, $stateParams, UtilSvc, FieldSvc, FieldMetaSvc, LocaleSvc, SchemaSvc, FlowSvc) {
   'ngInject';
 
   var sFn = UtilSvc.scopeHelpers($scope);
@@ -15,8 +15,12 @@ module.exports = function($scope, $stateParams, UtilSvc, FieldSvc, FieldMetaSvc,
   $scope.field = {
     type: 'text'
   };
-  SchemaSvc
-    .get('user')
+  FlowSvc
+    .get(flow)
+    .then(function(result) {
+      $scope.schemas = result.data.schemas;
+      return SchemaSvc.getAllIntersect($scope.schemas);
+    })
     .then(sFn.pluckPropToScope('schemaAttribute', 'schemaAttributes'));
   FieldMetaSvc
     .getFieldTypes()
