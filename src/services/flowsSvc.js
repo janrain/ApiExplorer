@@ -18,6 +18,10 @@ module.exports = function(CredentialSvc, HttpSvc) {
 
   this.get = function(flow) {
     return HttpSvc.get(basePath().concat([flow]))
+      .then(function(result) {
+        if(result.data.schemas === undefined) result.data.schemas = ["user"];
+        return result;
+      });
   }
 
   this.save = function(flow, data) {
