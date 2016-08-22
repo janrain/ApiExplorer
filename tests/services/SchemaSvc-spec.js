@@ -6,7 +6,7 @@ var helpers = require('../helpers');
 var defaultCreds = require("../fixtures/credsDefault");
 var schemaAttributes = require("../fixtures/schemaAttributes");
 
-describe('schemasSvc', function() {
+describe('SchemaSvc', function() {
   var $q;
   var $rootScope;
   var basePath;
@@ -44,7 +44,7 @@ describe('schemasSvc', function() {
     });
   });
   describe('get', function() {
-    it('httpSvc.get is called with schema name', function() {
+    it('HttpSvc.get is called with schema name', function() {
       SchemaSvc.get(schema);
       sinon.assert.callCount(HttpSvc.get, 1);
       sinon.assert.calledWith(HttpSvc.get, basePath.concat([schema]));
