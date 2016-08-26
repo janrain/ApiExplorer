@@ -10,15 +10,19 @@ module.exports = function($scope, $state, $stateParams, $q, SchemaSvc, FlowSvc, 
   function init() {
     $scope.flow = $stateParams.flow;
     $scope.schemaAttributes = [];
-    SchemaSvc.getAllIntersect()
-      .then(sFn.pluckPropToScope('schemaAttribute', 'schemaAttributes'))
+    FlowSvc.get($scope.flow)
+      .then(function(result) {
+        $scope.schemas = result.data.schemas;
+        return SchemaSvc.getAllIntersect($scope.schemas);
+      })
+      .then(sFn.pluckPropToScope('schemaAttribute', 'schemaAttributes'));
   }
 
   function changeState(flow, attribute) {
     if (!attribute) {
       // Attribute was not given. Redirect to addAttribute page.
       return $q.when(
-        $state.go('collectNewData.addAttribute', { flow: flow })
+        $state.go('collectNewData.addAttribute', { flow: flow, schemas: $scope.schemas })
       );
     } else {
       // Attribute was given. Redirect to addField.

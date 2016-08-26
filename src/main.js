@@ -175,6 +175,9 @@ angular.module(
         label: 'Select Attribute',
         parent: 'collectNewData',
         skip: true
+      },
+      params: {
+        flow: null
       }
     })
     .state('collectNewData.addAttribute', {
@@ -184,6 +187,10 @@ angular.module(
         label: 'Add Attribute',
         parent: 'collectNewData',
         skip: true
+      },
+      params: {
+        flow: null,
+        schemas: null
       }
     })
     .state('collectNewData.addAttributeStatus', {
@@ -195,6 +202,8 @@ angular.module(
         skip: true
       },
       params: {
+        flow: null,
+        schemas: null,
         attribute: null,
         results: null
       }
@@ -208,6 +217,7 @@ angular.module(
         skip: true
       },
       params: {
+        flow: null,
         attribute: null
       }
     })
@@ -220,6 +230,7 @@ angular.module(
         skip: true
       },
       params: {
+        flow: null,
         field: null
       }
     })
