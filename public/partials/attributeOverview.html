@@ -2,9 +2,9 @@
   <h3>{{attribute}}</h3>
   <div class="col-md-12">
     <table class="table table-bordered">
-      <tr ng-repeat="(key, value) in fields | orderBy:'toString()'">
-        <th>{{key}}</th>
-        <td>{{value}}</td>
+      <tr ng-repeat="field in fields | toArray | orderBy:'$key'">
+        <th>{{field.$key}}</th>
+        <td>{{field.$value}}</td>
       </tr>
     </table>
   </div>

@@ -26,6 +26,7 @@
     "angular-loading-bar": "^0.8.0",
     "angular-resource": "^1.4.8",
     "angular-sanitize": "^1.4.8",
+    "angular-toarrayfilter": "^1.0.1",
     "angular-ui-bootstrap": "^0.14.3",
     "angular-ui-router": "^0.2.15",
     "bootstrap": "^3.3.6",
