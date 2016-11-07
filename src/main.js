@@ -7,13 +7,15 @@ var selectSchemaResolvers = require('./resolvers/SelectSchemaResolvers')
 window.jQuery = require('jquery')
 require('bootstrap')
 require('angular-breadcrumb');
-require('angular-drag-and-drop-lists')
+require('angular-drag-and-drop-lists');
+require('angular-toarrayfilter');
 
 angular.module(
   'capi-ui',
   [
     'ncy-angular-breadcrumb',
     'dndLists',
+    'angular-toArrayFilter',
     require('angular-loading-bar'),
     require('angular-sanitize'),
     require('angular-ui-bootstrap'),
