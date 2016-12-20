@@ -3,19 +3,11 @@
 var pluck = require('lodash/collection/pluck');
 var intersect = require('lodash/array/intersection');
 
-module.exports = function(CredentialSvc, HttpSvc, $q) {
+module.exports = function(BasePathSvc, HttpSvc, $q) {
   'ngInject';
 
   var self = this;
-
-  function basePath() {
-    var creds = CredentialSvc.get()
-    return [
-      'config',
-      creds.appId,
-      'schemas'
-    ];
-  }
+  var basePath = BasePathSvc.getSchemaBasePath;
 
   // Since lodash 3.10.1 doesn't have intersectionBy, we'll need to create our own
   // Remove this when we move to lodash 4.14.1+

@@ -2,6 +2,7 @@
 
 require('angular').module('capi-ui')
 .constant('RegionMap', require('./RegionMapCnst'))
+.service('BasePathSvc', require('./BasePathSvc'))
 .service('CredentialSvc', require('./CredentialSvc'))
 .service('FileReaderSvc', require('./FileReaderSvc'))
 .service('FieldMetaSvc', require('./fieldMetaSvc'))

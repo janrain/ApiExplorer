@@ -1,17 +1,10 @@
 'use strict';
 var sortBy = require('lodash/collection/sortBy');
 
-module.exports = function(CredentialSvc, HttpSvc) {
+module.exports = function(BasePathSvc, HttpSvc) {
   'ngInject';
+  var basePath = BasePathSvc.getBasePath;
 
-  function basePath() {
-    var creds = CredentialSvc.get()
-    return [
-      'config',
-      creds.appId,
-      'flows'
-    ];
-  }
 
   this.getAll = function(flow) {
     return HttpSvc
