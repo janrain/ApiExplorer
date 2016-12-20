@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(UtilSvc, HttpSvc) {
+module.exports = function(UtilSvc, HttpSvc, BasePathSvc) {
   'ngInject';
 
   function basePath() {

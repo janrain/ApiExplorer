@@ -1,16 +1,10 @@
 'use strict';
 
-module.exports = function(CredentialSvc, HttpSvc) {
+module.exports = function(BasePathSvc, HttpSvc) {
   'ngInject';
 
-  function basePath() {
-    var creds = CredentialSvc.get();
-    return [
-      'config',
-      creds.appId,
-      'flows'
-    ];
-  }
+  var basePath = BasePathSvc.getBasePath;
+
 
   this.getAll = function(flow) {
     return HttpSvc.get(basePath().concat([flow, 'forms']))
